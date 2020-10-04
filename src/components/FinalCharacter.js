@@ -8,10 +8,10 @@ const FinalCharacter = () => {
     const { user } = useContext(UserContext);
     const chosenCharacter = useContext(CharactersContext);
 
-    console.log(chosenCharacter)
+    console.log('finalCharacter');
     return (
-        <div>
-            <Crawl containerStyles={{ width: '90vw', height: '85vh' }} >
+        <div style={{ height: '85vh', width: '95vw' }}>
+            <Crawl>
                 <div>
                     Em uma galáxia muito distante, { user.name } escolheu { chosenCharacter.chosenCharacter.character } para ser seu Lutador. Boa sorte, viajante
                 </div>
