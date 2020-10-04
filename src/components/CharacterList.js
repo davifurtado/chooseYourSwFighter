@@ -30,15 +30,15 @@ const CharacterList = () => {
                             placeholder="Pesquisar pelo nome..."
                         />
                         {filteredCharacters.length ?
-                            <div 
-                            >
+                            <div>
                                 <div>
                                     {   filteredCharacters.map(character => {
                                             return ( 
                                                 <div 
                                                     key={`${character.name}radio`}
                                                     style={{
-                                                        border: '1px solid'
+                                                        border: '1px solid',
+                                                        margin: '5px 0 5px 0'
                                                     }}
                                                 >
                                                     <input 

@@ -14,18 +14,20 @@ const RootContainer = () => {
     }
     return (user && user.name && user.gender && user.faction && user.faction !== " ") ? (
         <div className="root-container">
-            <div>
-                {`Bem vindo (a), ${user.name}`}
+            <div style={{ margin: '5px' }}>
+                <div>
+                    {`Bem vindo (a), ${user.name}`}
+                </div>
+                <div style={{ margin: '5px' }}>
+                    {`Gênero: ${user.gender  === 'male' ? "Homem" : "Mulher"}, Facção: ${user.faction} `}
+                </div>
+                <button onClick={handleReset}> Voltar </button>
             </div>
-            <div>
-                {`Gênero: ${user.gender  === 'male' ? "Homem" : "Mulher"}, Facção: ${user.faction} `}
-            </div>
-            <button onClick={handleReset}> Voltar </button>
             <CharacterList />
         </div>
     ) : (
         <div className="root-container">
-            <h1>Digite seu nome e escolha um gênero</h1>
+            <h1 style={{ margin: '5px' }}>Digite seu nome e escolha um gênero</h1>
             <UserForm />
         </div>
     )

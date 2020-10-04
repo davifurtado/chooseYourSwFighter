@@ -8,6 +8,8 @@ body {
   height: 100vh;
   background-color: black;
   color: yellow;
+
+  font-family: 'Days One'; 
 }
 
 code {

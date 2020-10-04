@@ -87,7 +87,7 @@ const UserForm = () => {
                     </div>
                 )
             }
-            <div>
+            <div style={{ margin: '5px' }}>
                 <button 
                     type="submit"
                     disabled={ !name || !faction }
