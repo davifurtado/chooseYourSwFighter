@@ -8,6 +8,7 @@ export const CharactersContext = createContext();
 const CharactersContextProvider = (props) => {
     const { user } = useContext(UserContext);
 
+    const [chosenCharacter, setChosenCharacter] = useState('');
     const [characters, setCharacters] = useState([]);
 
     const getCharacters = async () => {
@@ -26,12 +27,21 @@ const CharactersContextProvider = (props) => {
         })
     }
 
-    /*useEffect(() => {
-        getCharacters()//console.log('teste use effecet');
-    }, []) */
+    const handleSetChosenCharacter = (character) => {
+        setChosenCharacter({ character })
+    }
 
+    const handleResetCharacters = () => {
+        setChosenCharacter({
+            chosenCharacter: ''
+        })
+        setCharacters({
+            characters: []
+        })
+    }
+    
     return (
-        <CharactersContext.Provider value={{ characters, getCharacters }}>
+        <CharactersContext.Provider value={{ characters, getCharacters, chosenCharacter, handleSetChosenCharacter, handleResetCharacters }}>
             { props.children }
         </CharactersContext.Provider>
     );

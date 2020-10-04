@@ -4,10 +4,12 @@ import CharacterDetails from './CharacterDetails';
 import { UserContext } from '../contexts/UserContext';
 import jediList from '../assets/jediList';
 import sithList from '../assets/sithList';
+import FinalCharacter from './FinalCharacter'
 
 const CharacterList = () => {
-    const { characters } = useContext(CharactersContext);
+    const { characters, handleSetChosenCharacter } = useContext(CharactersContext);
     const [nameFilter, setNameFilter] = useState('');
+    const [finish, setFinish] = useState(false);
     const { user } = useContext(UserContext);
 
     const faction = user.faction === 'jedi' ? jediList : sithList
@@ -18,20 +20,49 @@ const CharacterList = () => {
 
     return (
         <div>
-            <input
-                type="text"
-                value={nameFilter} 
-                onChange={(e) => setNameFilter(e.target.value ? e.target.value.toUpperCase() : e.target.value)}
-                placeholder="Pesquisar pelo nome..."
-            />
-            {filteredCharacters.length ?
-                <div>
-                    <ul>
-                        { filteredCharacters.map(character => {
-                            return ( <CharacterDetails character={character} key={character.name} />)
-                        })}
-                    </ul>
-                </div> : <div className="empty" >Nenhum Personagem Encontrado </div>
+            {
+                !finish ? (
+                    <div>
+                        <input
+                            type="text"
+                            value={nameFilter} 
+                            onChange={(e) => setNameFilter(e.target.value ? e.target.value.toUpperCase() : e.target.value)}
+                            placeholder="Pesquisar pelo nome..."
+                        />
+                        {filteredCharacters.length ?
+                            <div 
+                            >
+                                <div>
+                                    {   filteredCharacters.map(character => {
+                                            return ( 
+                                                <div 
+                                                    key={`${character.name}radio`}
+                                                    style={{
+                                                        border: '1px solid'
+                                                    }}
+                                                >
+                                                    <input 
+                                                        type="radio" 
+                                                        id="chosenCharacter" 
+                                                        name="chosenCharacter" 
+                                                        value={character.name}
+                                                        onChange={(e) => handleSetChosenCharacter(e.target.value)}
+                                                />
+                                                    <CharacterDetails character={character} />
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </div>
+                                <button onClick={() => setFinish(true)}> GO! </button>
+                            </div> : <div className="empty" >Nenhum Personagem Encontrado </div>
+                        }
+                    </div>
+                ) : (
+                    <div> 
+                        <FinalCharacter />
+                    </div>
+                    )
             }
         </div>
     )

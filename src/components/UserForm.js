@@ -6,8 +6,8 @@ const UserForm = () => {
     const { addUser } = useContext(UserContext)
     const { getCharacters } = useContext(CharactersContext)
     const [name, setName] = useState('');
-    const [gender, setGender] = useState('');
-    const [faction, setFaction] = useState('');
+    const [gender, setGender] = useState('male');
+    const [faction, setFaction] = useState(' ');
 
     const handleOnChangeGender = (e) => {
         setGender(e.target.value)
@@ -15,21 +15,18 @@ const UserForm = () => {
 
     const handleOnChangeFaction = (e) => {
         setFaction(e.target.value)
+
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        /*if (name && gender && faction) {
-            getCharacters()
-                .then(() => {
-                    addUser(name, gender, faction);
-                })
+        if (faction && faction !== " ") {
+            await getCharacters();
+            addUser(name, gender, faction);
         } else {
             addUser(name, gender, faction);
-        }*/
-
-        addUser(name, gender, faction);
-        getCharacters();
+            setFaction('')
+        }
     }
 
     const { user } = useContext(UserContext);
@@ -52,6 +49,7 @@ const UserForm = () => {
                         name="gender" 
                         value="male"
                         onChange={handleOnChangeGender}
+                        defaultChecked
                     />
                     <label htmlFor="male">Male</label>
                     <input 
@@ -87,7 +85,12 @@ const UserForm = () => {
                 )
             }
             <div>
-                <button type="submit">Go! </button>
+                <button 
+                    type="submit"
+                    disabled={ !name || !faction }
+                >
+                    Go! 
+                </button>
             </div>
         </form>
     );

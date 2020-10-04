@@ -7,8 +7,17 @@ const UserContextProvider = (props) => {
     const addUser = (name, gender, faction) => {
         setUser({ name, gender, faction })
     }
+
+    const resetUser = () => {
+        setUser({
+            name: '',
+            gender: '',
+            faction : ' '
+        })
+    }
+
     return (
-        <UserContext.Provider value={{ user, addUser }}>
+        <UserContext.Provider value={{ user, addUser, resetUser }}>
             { props.children }
         </UserContext.Provider>
     );
