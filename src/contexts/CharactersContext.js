@@ -14,7 +14,7 @@ const CharactersContextProvider = (props) => {
     const getCharacters = async () => {
         const config = {
           method: 'get',
-          url: 'http://swapi.dev/api/people/?page=1',
+          url: 'https://swapi.dev/api/people/?page=1',
           headers: { }
         }
         await axios(config)
@@ -39,7 +39,7 @@ const CharactersContextProvider = (props) => {
             characters: []
         })
     }
-    
+
     return (
         <CharactersContext.Provider value={{ characters, getCharacters, chosenCharacter, handleSetChosenCharacter, handleResetCharacters }}>
             { props.children }
