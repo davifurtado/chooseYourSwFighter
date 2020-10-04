@@ -4,8 +4,7 @@ const CharacterDetails = ({ character }) => {
     return (
         <li>
             <div>Nome: { character.name }</div>
-            <div>Altura: { character.height }</div>
-            <div>Cor dos Olhos: { character.eye_color }</div>
+            <div>Altura: { character.height } CM</div>
         </li>
     );
 }

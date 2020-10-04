@@ -1,8 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from '../contexts/UserContext';
+import { CharactersContext } from '../contexts/CharactersContext';
 
 const UserForm = () => {
     const { addUser } = useContext(UserContext)
+    const { getCharacters } = useContext(CharactersContext)
     const [name, setName] = useState('');
     const [gender, setGender] = useState('');
     const [faction, setFaction] = useState('');
@@ -17,10 +19,21 @@ const UserForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        /*if (name && gender && faction) {
+            getCharacters()
+                .then(() => {
+                    addUser(name, gender, faction);
+                })
+        } else {
+            addUser(name, gender, faction);
+        }*/
+
         addUser(name, gender, faction);
+        getCharacters()
     }
 
     const { user } = useContext(UserContext);
+
     return (
         <form onSubmit={handleSubmit}>
             { !user.name ? (
