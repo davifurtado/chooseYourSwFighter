@@ -64,7 +64,7 @@ const CharacterList = () => {
                         }
                     </div>
                 ) : (
-                    <div style={{ height: '500px', overflow: 'auto' }}> 
+                    <div> 
                         <FinalCharacter />
                     </div>
                     )
