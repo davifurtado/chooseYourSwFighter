@@ -1,6 +1,7 @@
 import React, { createContext, useState, useContext, } from 'react';
 import { UserContext } from '../contexts/UserContext';
-import axios from 'axios'
+import axios from 'axios';
+
 
 export const CharactersContext = createContext();
 

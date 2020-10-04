@@ -29,7 +29,7 @@ const UserForm = () => {
         }*/
 
         addUser(name, gender, faction);
-        getCharacters()
+        getCharacters();
     }
 
     const { user } = useContext(UserContext);

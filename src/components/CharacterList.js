@@ -1,18 +1,27 @@
 import React, { useContext, useState } from 'react';
 import { CharactersContext } from '../contexts/CharactersContext';
 import CharacterDetails from './CharacterDetails';
+import { UserContext } from '../contexts/UserContext';
+import jediList from '../assets/jediList';
+import sithList from '../assets/sithList';
 
 const CharacterList = () => {
     const { characters } = useContext(CharactersContext);
     const [nameFilter, setNameFilter] = useState('');
-    const filteredCharacters = nameFilter ? characters.characters.filter(character => character.name.includes(nameFilter)) : characters.characters
+    const { user } = useContext(UserContext);
+
+    const faction = user.faction === 'jedi' ? jediList : sithList
+
+    const charactersByFaction = characters.characters.filter(character => faction.includes(character.name))
+
+    const filteredCharacters = nameFilter ? charactersByFaction.filter(character => character.name.toUpperCase().includes(nameFilter)) : charactersByFaction
 
     return (
         <div>
             <input
                 type="text"
                 value={nameFilter} 
-                onChange={(e) => setNameFilter(e.target.value)}
+                onChange={(e) => setNameFilter(e.target.value ? e.target.value.toUpperCase() : e.target.value)}
                 placeholder="Pesquisar pelo nome..."
             />
             {filteredCharacters.length ?
