@@ -60,7 +60,7 @@ const CharacterList = () => {
                                 > 
                                     GO! 
                                 </button>
-                            </div> : <div className="empty" >Nenhum Personagem Encontrado </div>
+                            </div> : <div className="empty" >Nenhum Personagem Encontrado. Tente novamente com outra combinação de facção e gênero </div>
                         }
                     </div>
                 ) : (

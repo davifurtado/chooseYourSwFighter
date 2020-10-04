@@ -7,8 +7,6 @@ import Crawl from 'react-star-wars-crawl'
 const FinalCharacter = () => {
     const { user } = useContext(UserContext);
     const chosenCharacter = useContext(CharactersContext);
-
-    console.log('finalCharacter');
     return (
         <div style={{ height: '85vh', width: '95vw' }}>
             <Crawl>
