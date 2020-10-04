@@ -17,7 +17,7 @@ const RootContainer = () => {
             <div>
                 {`Bem vindo (a), ${user.name}`}
             </div>
-            <div> 
+            <div>
                 {`Gênero: ${user.gender}, Facção: ${user.faction} `}
             </div>
             <button onClick={handleReset}> Voltar </button>

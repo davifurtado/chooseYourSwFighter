@@ -37,7 +37,7 @@ const UserForm = () => {
                 <div>
                     <input
                         type="text"
-                        placeholder="Your Name..."
+                        placeholder="Nome..."
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         required
@@ -63,24 +63,27 @@ const UserForm = () => {
                 </div>
                 ) : (
                     <div>
-                        <input 
-                            type="radio" 
-                            id="jedi" 
-                            name="facction" 
-                            value="jedi"
-                            onChange={handleOnChangeFaction}
-                            checked={faction === 'jedi'}
-                        />
-                        <label htmlFor="jedi">Jedi</label>
-                        <input 
-                            type="radio" 
-                            id="sith" 
-                            name="facction" 
-                            value="sith"
-                            onChange={handleOnChangeFaction}
-                            checked={faction === 'sith'}
-                        />
-                        <label htmlFor="sith">Sith</label>
+                        <h2>E a sua facção...</h2>
+                        <div>
+                            <input 
+                                type="radio" 
+                                id="jedi" 
+                                name="facction" 
+                                value="jedi"
+                                onChange={handleOnChangeFaction}
+                                checked={faction === 'jedi'}
+                            />
+                            <label htmlFor="jedi">Jedi</label>
+                            <input 
+                                type="radio" 
+                                id="sith" 
+                                name="facction" 
+                                value="sith"
+                                onChange={handleOnChangeFaction}
+                                checked={faction === 'sith'}
+                            />
+                            <label htmlFor="sith">Sith</label>
+                        </div>
                     </div>
                 )
             }

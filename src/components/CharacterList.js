@@ -7,7 +7,7 @@ import sithList from '../assets/sithList';
 import FinalCharacter from './FinalCharacter'
 
 const CharacterList = () => {
-    const { characters, handleSetChosenCharacter } = useContext(CharactersContext);
+    const { characters, handleSetChosenCharacter, chosenCharacter } = useContext(CharactersContext);
     const [nameFilter, setNameFilter] = useState('');
     const [finish, setFinish] = useState(false);
     const { user } = useContext(UserContext);
@@ -54,7 +54,12 @@ const CharacterList = () => {
                                         })
                                     }
                                 </div>
-                                <button onClick={() => setFinish(true)}> GO! </button>
+                                <button 
+                                    onClick={() => setFinish(true)}
+                                    disabled={!chosenCharacter}
+                                > 
+                                    GO! 
+                                </button>
                             </div> : <div className="empty" >Nenhum Personagem Encontrado </div>
                         }
                     </div>
