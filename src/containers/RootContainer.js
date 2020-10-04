@@ -5,9 +5,9 @@ import UserForm from '../components/UserForm';
 const RootContainer = () => {
     const { user } = useContext(UserContext);
     console.log(user)
-    return (user && user.name && user.gender) ? (
+    return (user && user.name && user.gender && user.faction) ? (
         <div>
-            {`nome: ${user.name}, genero: ${user.gender} `}
+            {`nome: ${user.name}, genero: ${user.gender}, faccao: ${user.faction} `}
         </div>
     ) : (
         <div className="root-container">

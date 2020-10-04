@@ -4,8 +4,8 @@ export const UserContext = createContext();
 
 const UserContextProvider = (props) => {
     const [user, setUser] = useState({});
-    const addUser = (name, gender) => {
-        setUser({ name, gender })
+    const addUser = (name, gender, faction) => {
+        setUser({ name, gender, faction })
     }
     return (
         <UserContext.Provider value={{ user, addUser }}>
