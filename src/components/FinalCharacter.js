@@ -13,7 +13,7 @@ const FinalCharacter = () => {
         <div>
             <Crawl containerStyles={{ width: '90vw', height: '85vh' }} >
                 <div>
-                    Parabéns, { user.name }, você escolheu o personagem { chosenCharacter.chosenCharacter.character }
+                    Em uma galáxia muito distante, { user.name } escolheu { chosenCharacter.chosenCharacter.character } para ser seu Lutador. Boa sorte, viajante
                 </div>
             </Crawl>
         </div>
