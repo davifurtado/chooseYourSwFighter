@@ -51,7 +51,7 @@ const UserForm = () => {
                         onChange={handleOnChangeGender}
                         defaultChecked
                     />
-                    <label htmlFor="male">Male</label>
+                    <label htmlFor="male">Homem</label>
                     <input 
                         type="radio" 
                         id="female" 
@@ -59,7 +59,7 @@ const UserForm = () => {
                         value="female"
                         onChange={handleOnChangeGender}
                     />
-                    <label htmlFor="female">Female</label>
+                    <label htmlFor="female">Mulher</label>
                 </div>
                 ) : (
                     <div>
